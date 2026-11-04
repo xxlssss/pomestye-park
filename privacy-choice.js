@@ -19,7 +19,7 @@
   banner.setAttribute('role', 'region');
   banner.setAttribute('aria-label', 'Настройки cookies');
   banner.hidden = true;
-  banner.innerHTML = '<div class="cookie-copy"><strong>Ваш выбор конфиденциальности</strong><p>Сохраняем ваш выбор в браузере. Яндекс Метрика (включая Вебвизор и карту кликов) и Яндекс Карты подключаются только после согласия. Отклонить — оставить только обязательное хранение выбора. <a href="privacy.html#cookies">Подробнее</a> · <a href="consent.html#map">Согласие</a></p></div><div class="cookie-actions"><button type="button" data-choice="all">Принять</button><button type="button" data-choice="required">Отклонить</button></div>';
+  banner.innerHTML = '<div class="cookie-copy"><strong>Ваш выбор конфиденциальности</strong><p>Сохраняем ваш выбор в браузере. Яндекс Метрика и Яндекс Карты подключаются только после согласия. <a href="privacy.html#cookies">Подробнее</a> · <a href="consent.html#map">Согласие</a></p></div><div class="cookie-actions"><button type="button" data-choice="all">Принять</button><button type="button" data-choice="required">Отклонить</button></div>';
   document.body.append(banner);
   let analyticsStarted = false;
   function analyticsState() {
@@ -52,7 +52,7 @@
   }
   function visibility() {
     // Let the existing welcome dialog finish first; never stack two notices.
-    banner.hidden = !!document.querySelector('dialog[open]') || (!manuallyOpened && !!choice);
+    banner.hidden = !!document.querySelector('dialog[open]') || (!manuallyOpened && (!!choice || !/(?:\/|\/index\.html)$/.test(location.pathname)));
   }
   document.querySelectorAll('dialog').forEach(dialog => {
     new MutationObserver(visibility).observe(dialog, { attributes: true, attributeFilter: ['open'] });
