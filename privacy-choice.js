@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const key = 'pomestye-privacy-choice-v1';
-  const version = 1;
+  const version = 2;
   const lifetime = 90 * 24 * 60 * 60 * 1000;
   const read = () => {
     try {
@@ -19,9 +19,26 @@
   banner.setAttribute('role', 'region');
   banner.setAttribute('aria-label', 'Настройки cookies');
   banner.hidden = true;
-  banner.innerHTML = '<div class="cookie-copy"><strong>Ваш выбор конфиденциальности</strong><p>Сохраняем ваш выбор в браузере. Яндекс Карты подключим только с вашего согласия. <a href="privacy.html#cookies">Подробнее</a> · <a href="consent.html#map">Согласие</a></p></div><div class="cookie-actions"><button type="button" data-choice="all">Принять все</button><button type="button" data-choice="required">Оставить обязательные</button></div>';
+  banner.innerHTML = '<div class="cookie-copy"><strong>Ваш выбор конфиденциальности</strong><p>Сохраняем ваш выбор в браузере. Яндекс Метрика (включая Вебвизор и карту кликов) и Яндекс Карты подключаются только после согласия. Отклонить — оставить только обязательное хранение выбора. <a href="privacy.html#cookies">Подробнее</a> · <a href="consent.html#map">Согласие</a></p></div><div class="cookie-actions"><button type="button" data-choice="all">Принять</button><button type="button" data-choice="required">Отклонить</button></div>';
   document.body.append(banner);
+  let analyticsStarted = false;
+  function analyticsState() {
+    if (choice?.choice !== 'all') {
+      if (analyticsStarted) { window.ym?.(114074537, 'destruct'); location.reload(); }
+      return;
+    }
+    if (analyticsStarted) return;
+    analyticsStarted = true;
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r)return;}
+      k=e.createElement(t);a=e.getElementsByTagName(t)[0];k.async=1;k.src=r;a.parentNode.insertBefore(k,a);
+    })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=114074537','ym');
+    ym(114074537,'init',{ssr:true,webvisor:true,clickmap:true,referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
+  }
   function mapState() {
+    analyticsState();
     document.querySelectorAll('[data-map-src]').forEach(frame => {
       if (choice?.choice === 'all') {
         if (!frame.hasAttribute('src')) frame.src = frame.dataset.mapSrc;
