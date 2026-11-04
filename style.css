@@ -54,3 +54,9 @@
 /* Keep notice text readable at narrow widths. */
 .guest-details{grid-template-columns:repeat(2,minmax(0,1fr))}.guest-details section{min-width:0}.guest-details h3{line-height:1.35;word-break:normal;overflow-wrap:break-word;letter-spacing:normal}.guest-details p{word-break:normal;overflow-wrap:break-word}.guest-label{display:block;line-height:1.5}.guest-phone{white-space:nowrap}
 @media(max-width:600px){.guest-details{grid-template-columns:minmax(0,1fr)}.guest-notice{box-sizing:border-box;max-width:calc(100vw - 24px)}.guest-details h3{margin:12px 0 16px}.guest-details section+section{padding-top:22px}}
+
+
+/* Static inner pages must not animate the backdrop ancestor on first paint.
+   Safari can retain the body-colour backdrop while that layer is transforming. */
+.inner-page .scene.active{transition:none;opacity:1;visibility:visible}
+.inner-page .scene.active .photo{transform:none;transition:none}

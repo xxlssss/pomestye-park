@@ -50,3 +50,8 @@ body.privacy-page{margin:0;min-height:100vh;height:auto;overflow:visible;backgro
 /* Light pages retain the same transparent glass with readable ink. */
 .on-map .privacy-footer a,.on-map .privacy-footer button{color:#193b4b;border-color:#193b4b38;text-shadow:none;background:linear-gradient(135deg,#ffffff24,#ffffff03)}
 .privacy-footer a,.privacy-footer button{justify-content:center;white-space:nowrap;-webkit-backdrop-filter:blur(12px) saturate(135%)}
+
+/* Footer controls are text links, not glass surfaces. */
+.privacy-footer a,.privacy-footer button,.on-map .privacy-footer a,.on-map .privacy-footer button{background:none;border:0;border-radius:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;text-decoration:none;text-shadow:0 1px 4px #0009}
+.privacy-footer a:hover,.privacy-footer button:hover{text-decoration:underline;text-underline-offset:4px}
+.banquet-page .privacy-footer a,.banquet-page .privacy-footer button,.picnic-page .privacy-footer a,.picnic-page .privacy-footer button,.afisha-page .privacy-footer a,.afisha-page .privacy-footer button,.on-map .privacy-footer a,.on-map .privacy-footer button{color:#193b4b;text-shadow:none}
