@@ -19,7 +19,7 @@
   banner.setAttribute('role', 'region');
   banner.setAttribute('aria-label', 'Настройки cookies');
   banner.hidden = true;
-  banner.innerHTML = '<div class="cookie-copy"><strong>Ваш выбор конфиденциальности</strong><p>Сохраняем ваш выбор в браузере. Яндекс Метрика и Яндекс Карты подключаются только после согласия. <a href="privacy.html#cookies">Подробнее</a> · <a href="consent.html#map">Согласие</a></p></div><div class="cookie-actions"><button type="button" data-choice="all">Принять</button><button type="button" data-choice="required">Отклонить</button></div>';
+  banner.innerHTML = '<div class="cookie-copy"><p>Для анализа посещаемости сайта мы используем cookies. Подробнее — в <a href="privacy.html">политике конфиденциальности</a>.</p><p><a href="consent.html">Согласие на обработку персональных данных</a>.</p></div><div class="cookie-actions"><button type="button" data-choice="all">Принять</button><button type="button" data-choice="required">Отклонить</button></div>';
   document.body.append(banner);
   let analyticsStarted = false;
   function analyticsState() {
