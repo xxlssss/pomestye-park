@@ -19,7 +19,7 @@ f.addEventListener('submit',async e=>{
  const body={kind:'booking',date:f.elements.date.value,time:f.elements.time.value,guests:Number(f.elements.guests.value),name:f.elements.name.value.trim(),phone,consent:f.elements.consent.checked,clientId,token};
  if(!body.name||!body.consent){status.textContent='Проверьте имя и согласие на обработку данных.';return}
  busy=true;fields.disabled=true;sync();status.textContent='Отправляем заявку…';
- try{const r=await fetch(f.dataset.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify(body)});const d=await r.json();if(!r.ok||d.ok!==true)throw Error(d.error||'Не удалось отправить заявку.');f.reset();f.elements.date.value=today();clientId=crypto.randomUUID();status.textContent='Благодарим за заявку! Администратор свяжется с вами для подтверждения бронирования.'}
+ try{const r=await fetch(f.dataset.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify(body)});const d=await r.json();if(!r.ok||d.ok!==true)throw Error(d.error||'Не удалось отправить заявку.');f.reset();f.elements.date.value=today();clientId=crypto.randomUUID();status.textContent='Заявка отправлена. Ожидайте подтверждения администратора.'}
  catch(err){status.textContent=err.message==='Failed to fetch'?'Не удалось связаться с сервером. Попробуйте ещё раз или воспользуйтесь Telegram.':(err.message||'Не удалось отправить заявку. Попробуйте ещё раз.')}
  finally{busy=false;fields.disabled=false;resetChallenge()}
 });
