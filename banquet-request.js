@@ -16,7 +16,8 @@ f.addEventListener('change',e=>{if(e.target.name&&e.target.name!=='cf-turnstile-
 f.addEventListener('submit',async e=>{
  e.preventDefault();if(busy||!token||fields.disabled||!endpoint||!f.reportValidity())return;
  const phone=f.elements.phone.value.trim();if(!/^\+?[\d ()-]+$/.test(phone)||phone.replace(/\D/g,'').length<10||phone.replace(/\D/g,'').length>15){f.elements.phone.setCustomValidity('Проверьте номер телефона.');f.elements.phone.reportValidity();return}
- const body={kind:'banquet',name:f.elements.name.value.trim(),phone,date:f.elements.date.value,guests:Number(f.elements.guests.value),event_type:f.elements.event_type.value,hall:f.elements.hall.value,comment:f.elements.comment.value.trim(),consent:f.elements.consent.checked,clientId,token};
+ const body={kind:'banquet',name:f.elements.name.value.trim(),phone,date:f.elements.date.value,guests:Number(f.elements.guests.value),event_type:f.elements.event_type.value,hall:f.elements.hall.value,comment:f.elements.comment.value.trim(),contact_method:f.elements.contact_method.value,consent:f.elements.consent.checked,clientId,token};
+ if(!['telegram','whatsapp','phone'].includes(body.contact_method)){status.textContent='Выберите удобный способ связи.';return}
  if(!body.name||!body.consent){status.textContent='Проверьте имя и согласие на обработку данных.';return}
  busy=true;fields.disabled=true;sync();status.textContent='Отправляем заявку…';
  try{const r=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json'},credentials:'omit',body:JSON.stringify(body)});const d=await r.json();if(!r.ok||d.ok!==true)throw Error(d.error||'Не удалось отправить заявку.');f.reset();clientId=crypto.randomUUID();status.textContent='Заявка отправлена. Ожидайте связи с администратором.'}
