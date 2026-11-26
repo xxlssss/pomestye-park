@@ -27,3 +27,6 @@
 .banquet-request .banquet-preview a{color:inherit;font-weight:600;text-decoration:underline}
 .banquet-submit:disabled{cursor:not-allowed}
 .banquet-preview[hidden]{display:none}
+
+#banquet-challenge{min-height:65px;margin:0 0 16px;max-width:100%}
+.banquet-submit:disabled{opacity:.55;cursor:not-allowed}
