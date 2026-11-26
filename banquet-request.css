@@ -1,0 +1,29 @@
+.banquet-top-action{margin:-12px 0 26px}
+.banquet-details .banquet-cta{background:#193b4b;color:#fffaf0;border-color:#193b4b;box-shadow:0 6px 20px #193b4b16;cursor:pointer}
+.banquet-details .banquet-cta:hover{background:#254f60}
+.banquet-request{padding:clamp(24px,5vw,52px);background:#faf7f0;border:1px solid #193b4b26;border-radius:28px;scroll-margin-top:24px}
+.banquet-request .hall-eyebrow{margin:0 0 12px}
+.banquet-request .banquet-lead{margin:0 0 28px;max-width:700px}
+.banquet-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.banquet-fields label{min-width:0;display:flex;flex-direction:column;gap:8px;font-size:15px}
+.banquet-fields label>span{display:none}
+.banquet-fields :is(input,select,textarea){display:block;min-width:0;width:100%;max-width:100%;min-height:50px;border:1px solid #193b4b40;border-radius:12px;padding:12px 14px;font:16px/1.4 Kievit,Arial,sans-serif;color:#193b4b;background:#fffdf7;box-sizing:border-box}
+.banquet-fields textarea{resize:vertical}
+.banquet-fields :is(input,select,textarea):focus-visible,.banquet-consent input:focus-visible{outline:2px solid #b49b70;outline-offset:3px}
+.banquet-fields input[type=date]{-webkit-appearance:none;appearance:none;min-inline-size:0}
+.banquet-wide{grid-column:1/-1}
+.banquet-consent{display:flex;align-items:flex-start;gap:12px;margin-top:24px;font-size:14px;line-height:1.65}
+.banquet-consent input{flex:none;width:20px;height:20px;accent-color:#193b4b;margin:2px 0 0}
+.banquet-consent a{color:inherit;text-decoration:underline}
+.banquet-request .banquet-small{font-size:13px;color:#526773}
+.banquet-request .banquet-preview{font-size:14px;border-left:2px solid #b49b70;background:#eee7d9;padding:12px 16px;margin-bottom:22px}
+.banquet-submit:disabled{opacity:.6;cursor:default}
+#banquet-status:empty{display:none}
+#banquet-status{margin:18px 0 0;font-size:15px;line-height:1.5}
+@media(max-width:600px){.banquet-fields{grid-template-columns:1fr;gap:16px}.banquet-request{padding:24px 18px}.banquet-submit{width:100%}.banquet-top-action .hall-action{width:100%}}
+
+.banquet-form-fields{border:0;margin:0;padding:0;min-width:0}
+.banquet-form-fields:disabled :is(input,select,textarea){opacity:1;color:#526773;cursor:not-allowed;-webkit-text-fill-color:#526773}
+.banquet-request .banquet-preview a{color:inherit;font-weight:600;text-decoration:underline}
+.banquet-submit:disabled{cursor:not-allowed}
+.banquet-preview[hidden]{display:none}
