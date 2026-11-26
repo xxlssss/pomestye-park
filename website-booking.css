@@ -39,3 +39,6 @@ body.website-booking-page{height:auto;min-height:100dvh;overflow:visible;overscr
 .website-booking-page .booking-telegram-panel p{font-size:16px;line-height:1.55;margin:0 auto 16px;max-width:460px}
 .booking-telegram-panel .booking-links,.booking-phone-link{grid-template-columns:1fr}
 @media(max-width:600px){.website-booking-stack{gap:12px}.website-booking-page .booking-telegram-panel{padding:20px 18px}.website-booking-page .booking-telegram-panel p{font-size:15px}}
+
+.website-booking-page .booking-telegram-panel p strong{font-weight:700}
+.website-booking-page .booking-telegram-panel h1{margin:0 0 18px}
