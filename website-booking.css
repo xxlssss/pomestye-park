@@ -49,3 +49,18 @@ body.website-booking-page{height:auto;min-height:100dvh;overflow:visible;overscr
 .booking-contact-method input[type=radio]{appearance:auto;-webkit-appearance:auto;flex:0 0 18px;width:18px;height:18px;min-width:18px;min-height:18px;padding:0;margin:0;cursor:pointer}
 #website-booking-form .booking-contact-method label{border-color:#ffffff50;background:#ffffff0c}
 #website-booking-form .booking-contact-method input{accent-color:#e9c79a}
+
+/* The exact screenshot can replace the existing illustrated preview without changing the layout. */
+.telegram-promo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,184px);align-items:center;gap:24px;margin-top:4px}
+.telegram-promo-copy{min-width:0}
+.website-booking-page .booking-telegram-panel .telegram-promo-copy p{text-align:left;margin:0 0 22px;font-size:15px;line-height:1.65}
+.telegram-preview{display:block;position:relative;min-width:0;width:100%;aspect-ratio:344/740;border-radius:24px;filter:drop-shadow(0 15px 22px #0006);transition:transform .25s ease}
+.telegram-preview:hover{transform:translateY(-3px)}
+.telegram-preview:focus-visible{outline:2px solid #e9c79a;outline-offset:5px}
+.telegram-preview img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.telegram-preview .telegram-preview-original{display:none}
+.telegram-preview.has-original{aspect-ratio:944/2048;background:#171615;border:2px solid #8c8376;border-radius:clamp(20px,4vw,34px);padding:4px;box-shadow:0 0 0 1px #0b0b0b,inset 0 0 0 1px #4e4942}
+.telegram-preview.has-original .telegram-preview-art{display:none}
+.telegram-preview.has-original .telegram-preview-original{display:block;position:relative;inset:auto;width:100%;height:100%;border-radius:inherit;object-fit:cover;overflow:hidden}
+@media(max-width:600px){.telegram-promo{grid-template-columns:minmax(0,1fr) minmax(0,110px);gap:12px}.website-booking-page .booking-telegram-panel .telegram-promo-copy p{font-size:11px;line-height:1.6;margin:0 0 14px}.telegram-promo .booking-links a{font-size:10px;min-height:46px;padding:9px 5px}.telegram-preview.has-original{padding:3px;border-radius:20px}}
+@media(max-width:340px){.telegram-promo{grid-template-columns:1fr}.telegram-preview{width:126px;justify-self:center}.website-booking-page .booking-telegram-panel .telegram-promo-copy p{text-align:center}}
