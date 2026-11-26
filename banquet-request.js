@@ -36,6 +36,5 @@
   if (endpoint) {
     document.getElementById('banquet-form-fields').disabled = false;
     button.disabled = false;
-    document.getElementById('banquet-preview').hidden = true;
   }
 })();
