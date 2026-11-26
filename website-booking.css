@@ -32,3 +32,10 @@ body.website-booking-page{height:auto;min-height:100dvh;overflow:visible;overscr
 .website-booking-page .booking-panel .website-booking-alternative{font-size:13px;opacity:.9;margin:26px 0 12px}
 .website-booking-page .privacy-footer{position:relative;left:auto;right:auto;bottom:auto;width:auto;padding:0 5% 24px}
 @media(max-width:600px){.website-booking-page .scene.active{padding:180px 14px 32px}.website-booking-page .booking-panel{padding:22px 18px}.website-booking-grid{gap:14px}.website-booking-grid :is(input,select){padding:10px}.website-booking-count{flex-wrap:wrap}}
+
+.website-booking-stack{position:relative;display:grid;gap:16px;width:min(100%,620px);min-width:0}
+.website-booking-page .website-booking-stack .booking-panel{width:100%;box-sizing:border-box}
+.website-booking-page .booking-telegram-panel{padding:24px clamp(18px,4vw,36px)}
+.website-booking-page .booking-telegram-panel p{font-size:16px;line-height:1.55;margin:0 auto 16px;max-width:460px}
+.booking-telegram-panel .booking-links,.booking-phone-link{grid-template-columns:1fr}
+@media(max-width:600px){.website-booking-stack{gap:12px}.website-booking-page .booking-telegram-panel{padding:20px 18px}.website-booking-page .booking-telegram-panel p{font-size:15px}}
