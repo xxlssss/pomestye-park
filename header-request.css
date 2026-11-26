@@ -1,0 +1,4 @@
+/* Shared contact and banquet links, aligned in one vertical stack. */
+.header-action-stack{display:grid;grid-template-columns:minmax(0,1fr);gap:7px;max-width:100%}
+.header-contacts .header-action-stack .header-contact-link,.privacy-contact .header-action-stack .glass-link{display:flex;align-items:center;justify-content:center;text-align:center;white-space:nowrap;box-sizing:border-box;width:100%;margin:0}
+@media(max-width:600px){.header-action-stack{gap:4px}}
