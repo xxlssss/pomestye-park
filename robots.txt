@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pomestie-park.com/sitemap.xml
